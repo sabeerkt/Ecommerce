@@ -1,0 +1,76 @@
+<!-- app/templates/category.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block metades %}
+  <div class="meta-description">
+    {% if category %}
+      {{ category.description|truncatewords:150 }}
+    {% else %}  
+      Welcome to the shop 
+    {% endif %}
+  </div>
+{% endblock metades %}
+
+{% block title %}
+  <div class="page-title">
+    {% if category %}
+      {{ category.name }} - ABC Store
+    {% else %}  
+      See our new collection
+    {% endif %}
+  </div>
+{% endblock title %}
+
+{% block content %}
+  <div class="content-container">
+    <div class="category-navigation">
+      <ul>
+        <li><a href="{% url 'shop:allProduct' %}">All Products</a></li>
+      </ul>
+    </div>
+
+    {% if category %}
+      <div class="category-details">
+        <div class="category-image">
+          <img src="{{ category.image.url }}" alt="{{ category.name }}">
+        </div>
+        <div class="category-info">
+          <h2>{{ category.name }}</h2>
+          <p>{{ category.description }}</p>
+        </div>
+      </div>
+    {% else %}
+      <div class="banner">
+        <img src="{% static 'logo.jpg' %}" alt="image">
+      </div>
+      <div class="welcome-message">
+        <p>Welcome to the shop</p>
+      </div>
+    {% endif %}
+
+    <div class="product-gallery">
+      {% for product in products.object_list  %}
+        <div class="product-card">
+          <a href="{{product.get_url}}">
+            <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+          </a>
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="price">{{ product.price }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="mx-auto">
+      {% if products.paginator.num_pages > 1 %}
+        <hr>
+        <div class="text-center">
+          {% for pg in  products.paginator.page_range %}
+            <a href="?page={{pg}}" class="btn btn-dark{% if products.number == pg %} active{% endif %}">{{ pg }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock content %}
