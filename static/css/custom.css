@@ -1,12 +1,12 @@
 /* Navbar styling */
 .navbar {
-    background-color: #343a40; /* Dark background color */
+    background-color: #000000; /* Dark background color */
     color: #ffffff; /* Light text color */
     border-bottom: 2px solid #28a745; /* Bottom border color */
 }
 
 .navbar-brand {
-    color: #ffffff; /* White text color */
+    color: #000000; /* White text color */
     font-size: 24px; /* Adjust the font size as needed */
     font-weight: bold; /* Make the font bold */
 }
@@ -22,7 +22,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #28a745; /* Green text color on hover */
+    color: #000000; /* Red text color on hover */
 }
 
 /* Adjust the padding/margin as needed */
@@ -44,8 +44,8 @@
 
 .btn-outline-success:hover {
     color: #ffffff; /* White text color on hover for the search button */
-    background-color: #28a745; /* Green background color on hover for the search button */
-    border-color: #28a745; /* Green border color on hover for the search button */
+    background-color: #ff0000; /* Red background color on hover for the search button */
+    border-color: #ff0000; /* Red border color on hover for the search button */
 }
 
 /*footer css
@@ -83,7 +83,7 @@ footer a:hover {
 
 
 header {
-    background-color: #343a40; /* Dark background color */
+    background-color: #f5f5f5; /* Dark background color */
     color: #ffffff; /* Light text color */
     padding: 15px 0; /* Adjust padding as needed */
 }

@@ -15,11 +15,13 @@
           </li>
         {% endfor %}
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <i class="fa-solid fa-magnifying-glass">           </i>
+      <form class="d-flex" role="search" action="{% url 'search_app:searchrelt' %}" method="get">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+        <i class="fa-solid fa-magnifying-glass"></i>
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    </form>
+    
     </div>
   </div>
 </nav>

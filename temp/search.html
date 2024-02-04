@@ -1,0 +1,29 @@
+<!-- search.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block metades %}
+    we have a very content
+{% endblock metades %}
+
+{% block content %}
+    <p class="text-center">search: "{{ query }}"</p>
+
+    <div class="product-gallery">
+        {% for product in products %}
+            <div class="product-card">
+                <a href="{{ product.get_url }}">
+                    <img class="product-image" src="{{ product.image.url }}" alt="{{ product.name }}">
+                </a>
+                <div class="product-info">
+                    <h3 class="product-name">{{ product.name }}</h3>
+                    <p class="price">{{ product.price }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% empty %}
+        <p>No results found</p>
+    {% endfor %}
+{% endblock %}
