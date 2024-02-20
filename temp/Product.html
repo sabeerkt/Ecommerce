@@ -1,7 +1,8 @@
-<!-- prdct.html -->
-
 {% extends "base.html" %}
 {% load static %}
+{% include 'custom.css' %}
+
+<link href="{% static 'css/custom.css' %}" >
 
 {% block metades %}
     <div class="meta-description">
@@ -13,13 +14,14 @@
 {% block title %}
     <div class="page-title">
         {{ product.name }} - ABC Store
-        see new our collection
+        See our new collection
     </div>
 {% endblock title %}
 
 {% block content %}
     <div class="breadcrumbs">
-        <p><a href="{% url 'shop:allProduct' %}">Home</a> |
+        <p>
+            <a href="{% url 'shop:allProduct' %}">Home</a> |
             <a href="{{ product.category.get_absolute_url }}">{{ product.category.name }}</a> {{ product.name }}
         </p>
     </div>
@@ -36,7 +38,8 @@
             {% if product.stock <= 0 %}
                 <h3>Out of stock</h3>
             {% else %}
-                <a href="#">Add to Cart</a>
+                
+                <a style="background-color: brown;" href="{% url 'cart:add_cart' product.id %}">Add to Cart</a>
             {% endif %}
         </div>
     </div>

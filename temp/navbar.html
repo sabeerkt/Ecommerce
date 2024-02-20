@@ -15,6 +15,7 @@
           </li>
         {% endfor %}
       </ul>
+      <a href="{% url 'cart:cart_detail' %}">View Cart</a>
       <form class="d-flex" role="search" action="{% url 'search_app:searchrelt' %}" method="get">
         {% csrf_token %}
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">

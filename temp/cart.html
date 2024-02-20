@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        /* Add styles directly in the same HTML file */
+        .cart-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cart-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cart-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-image {
+            max-width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+            padding: 10px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .quantity {
+            font-size: 14px;
+        }
+
+        .subtotal {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .summary-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .empty-cart-message {
+            font-size: 16px;
+        }
+    </style>
+
+    <div class="cart-container">
+        <h2>Your Shopping Cart</h2>
+
+        {% if cart_items %}
+            <ul class="cart-list">
+                {% for item in cart_items %}
+                    <li class="cart-item">
+                        <img class="product-image" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                        <div class="cart-item-details">
+                            <div class="product-name">{{ item.product.name }}</div>
+                            <div class="quantity">Quantity: {{ item.quantity }}</div>
+                            <div class="subtotal">Subtotal: ${{ item.sub_total }}</div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="cart-summary">
+                <div class="summary-text">Order Summary</div>
+                <p>Total: ${{ total }}</p>
+                <p>Number of items: {{ counter }}</p>
+            </div>
+        {% else %}
+            <p class="empty-cart-message">Your cart is empty.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

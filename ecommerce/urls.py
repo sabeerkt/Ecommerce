@@ -1,12 +1,13 @@
-from django.conf import settings
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls')),  # This line is changed
+    path('cart/', include('cart.urls')),
     path('search_app/', include('search_app.urls')),
+    path('', include('app.urls')),
 ]
 
 if settings.DEBUG:

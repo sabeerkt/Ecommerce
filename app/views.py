@@ -35,9 +35,13 @@ def products_by_category(request, c_slug):
     return render(request, 'category.html', context)
 
 def productdet(request, c_slug, product_slug):
+    print(c_slug)
+    print(product_slug)
     try:
         product = Product.objects.get(category__slug=c_slug, slug=product_slug)
+        print(product, '2222222222')
     except Product.DoesNotExist:
-        raise Http404("Product does not exist")
+        print("00000")
+        raise Http404("Product does not exist jj")
 
-    return render(request, "prdct.html", {"product": product})
+    return render(request, "Product.html", {"product": product})

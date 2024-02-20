@@ -1,12 +1,12 @@
-/* Navbar styling */
+Navbar styling
 .navbar {
-    background-color: #000000; /* Dark background color */
+    background-color: #ffffff; /* Dark background color */
     color: #ffffff; /* Light text color */
     border-bottom: 2px solid #28a745; /* Bottom border color */
 }
 
 .navbar-brand {
-    color: #ffffff; /* White text color */
+    color: #000000; /* White text color */
     font-size: 24px; /* Adjust the font size as needed */
     font-weight: bold; /* Make the font bold */
 }
@@ -22,7 +22,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ff0000; /* Red text color on hover */
+    color: #000000; /* Red text color on hover */
 }
 
 /* Adjust the padding/margin as needed */
@@ -83,7 +83,7 @@ footer a:hover {
 
 
 header {
-    background-color: #f5f5f5; /* Dark background color */
+    background-color: #000000; /* Dark background color */
     color: #ffffff; /* Light text color */
     padding: 15px 0; /* Adjust padding as needed */
 }
@@ -144,7 +144,7 @@ h1 {
 }
 
 .price {
-    color: #28a745;
+    color: #a4261b;
     font-weight: bold;
     font-size: 16px;
 }
