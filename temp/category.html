@@ -24,11 +24,7 @@
 
 {% block content %}
   <div class="content-container">
-    <div class="category-navigation">
-      <ul>
-        <li><a href="{% url 'shop:allProduct' %}">All Products</a></li>
-      </ul>
-    </div>
+    
 
     {% if category %}
       <div class="category-details">
@@ -41,9 +37,7 @@
         </div>
       </div>
     {% else %}
-      <div class="banner">
-        <img src="{% static 'logo.jpg' %}" alt="image">
-      </div>
+      
       <div class="welcome-message">
         <p>Welcome to the shop</p>
       </div>

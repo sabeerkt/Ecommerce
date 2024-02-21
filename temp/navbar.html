@@ -1,28 +1,28 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-dark"> <!-- Change bg-body-tertiary to bg-dark -->
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">E-commerce</a>
+    <a class="navbar-brand text-white" href="#">E-commerce</a> <!-- Add text-white class for the brand text -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'shop:allProduct' %}"><i class="fas fa-home"></i> All Products</a>
+          <a class="nav-link active btn btn-outline-primary text-white" aria-current="page" href="{% url 'shop:allProduct' %}"><i class="fas fa-home"></i> All Products</a>
         </li>
         {% for cat in links %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ cat.get_url }}"><i class="fas fa-tag"></i> {{cat.name}}</a>
+            <a class="nav-link btn btn-outline-primary text-white" href="{{ cat.get_url }}"><i class="fas fa-tag"></i> {{cat.name}}</a>
           </li>
         {% endfor %}
       </ul>
-      <a href="{% url 'cart:cart_detail' %}">View Cart</a>
-      <form class="d-flex" role="search" action="{% url 'search_app:searchrelt' %}" method="get">
+      <a href="{% url 'cart:cart_detail' %}" class="btn btn-outline-primary text-white">View Cart</a>
+      <form class="d-flex" role="search" action="{% url 'search_app:searchrelt' %}" method="get"> <br>
         {% csrf_token %}
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-    
+        <div class="input-group">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="q">
+          <button class="btn btn-outline-success text-white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </form>
     </div>
   </div>
 </nav>
